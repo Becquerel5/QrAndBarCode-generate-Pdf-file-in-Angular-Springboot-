@@ -1,5 +1,5 @@
 ##
--The qr and bar code is found on localhost:8084/index
+-The qr and bar code is found at http://localhost:8084/index
 -the scan is found on the client/Angular side,where you can create a particular user it 
 automaticall generates the QR and Bar code
 -The download pdf can be access via swagger and thymleaf
