@@ -1,0 +1,169 @@
+<!-- <app-create></app-create> -->
+
+
+<div class="container">
+    <h1> Becquerel Scanner </h1>
+   
+   
+    <!-- <ngx-scanner-qrcode #action="scanner" [config]="config" (error)="onError($event)"></ngx-scanner-qrcode>
+   
+  
+    <p class="data">{{ action.data | async }}</p>
+   
+  
+    <p *ngIf="action.isLoading">⌛ Loading...</p>
+   
+  
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+      <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
+      <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
+    </button>
+   
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, 'start')">Start</button>
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, 'play')">Play</button>
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, 'pause')">Pause</button>
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, 'stop')">Stop</button>
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="action.download('ngx-scanner-qrcode')">Cap</button>
+   
+    <br>
+    
+  
+    <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="btn btn-success my-2"/>
+   
+    <ol>
+      <li *ngFor="let row of selectedFiles">
+        <img [src]="row.urlQR" [alt]="row.name">
+        <p class="data">{{row.data}}</p>
+        
+        <br><br>
+        <p class="data2">{{row.base64QR}}</p>
+      </li>
+    </ol>  -->
+  <!-- ///// v2-->
+  
+   <div class="container">
+      
+    
+     
+      <ngx-scanner-qrcode
+        #action="scanner"
+        [config]="config"
+        (event)="onEvent($event)"
+        (error)="onError($event)"
+      ></ngx-scanner-qrcode> 
+    
+      
+      <p class="data">{{ (action.data | async)?.data }}</p>
+    
+      
+      <p *ngIf="action.isLoading">⌛ Loading...</p>
+    
+     
+      <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+      >
+        <img
+          *ngIf="!action.isStart"
+          (click)="handle(action, 'start')"
+          src="https://img.icons8.com/ios/50/000000/no-camera--v2.png"
+          width="30px"
+        />
+        <img
+          *ngIf="action.isStart"
+          (click)="handle(action, 'stop')"
+          src="https://img.icons8.com/ios/50/000000/no-camera--v1.png"
+          width="30px"
+        />
+      </button>
+    
+     <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+        (click)="handle(action, 'start')"
+      >
+        Start
+      </button>
+      <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+        (click)="handle(action, 'play')"
+      >
+        Play
+      </button>
+      <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+        (click)="handle(action, 'pause')"
+      >
+        Pause
+      </button>
+      <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+        (click)="handle(action, 'stop')"
+      >
+        Stop
+      </button>
+      <button
+        class="btn"
+        [class.btn-info]="!action.isStart"
+        [class.btn-warning]="action.isStart"
+        [disabled]="action.isLoading"
+        (click)="action.download('ngx-scanner-qrcode')"
+      >
+        Capt
+      </button>
+    
+      <br /> 
+    
+      <!-- For select files -->
+      <!-- <input
+        #file
+        type="file"
+        (change)="onSelects(file.files)"
+        [multiple]="'multiple'"
+        [accept]="'.jpg, .png, .gif, .jpeg'"
+        class="btn btn-success my-2"
+      />
+    
+      <ol>
+        <li *ngFor="let row of selectedFiles">
+          <div class="position-relative" style="display: inline-flex;">
+            <img [src]="row.urlQR | safe: 'url'" [alt]="row.name" />
+            <app-scan [data]="row"></app-scan>
+          </div>
+        </li>
+      </ol> -->
+    
+      <!-- <div class="position-relative" style="display: inline-flex;">
+        <ngx-scanner-qrcode
+          #actionFile="scanner"
+          [src]="
+            'https://raw.githubusercontent.com/id1945/ngx-qrcode-styling/master/ngx-qrcode-styling-for-scanner.png'
+          "
+          [config]="{
+            isDraw: false,
+            style: { width: 'none', height: 'none', background: '#000' }
+          }"
+        >
+          <p class="data">{{ (actionFile.data | async)?.['data'] }}</p>
+        </ngx-scanner-qrcode>
+        <app-scan [data]="actionFile.data.value"></app-scan>
+      </div> -->
+    
+    
+    <!-- </div> -->
+    
+   
+  </div>

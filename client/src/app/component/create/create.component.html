@@ -1,0 +1,165 @@
+<p>create works!</p>
+<div class="br-pagebody container-fluid">
+  <div class="br-section-wrapper">
+    <div class="additional">
+      <h3>Upload Documents</h3>
+    </div>
+    <form action="" method="post"  [formGroup]="reactiveForm"  enctype="multipart/form-data">
+      <div class="form-layout form-layout-1">
+        <div class="row">
+          
+        </div>
+        <div class="row mg-b-25">
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">firstName</h5>
+                <input type=""  class="form-control" formControlName="firstName" name="firstName" required=""/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">lastName</h5>
+                <input type=""  class="form-control" formControlName="lastName" name="lastName" required=""/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">email</h5>
+                <input type=""  class="form-control" formControlName="emailId" name="emailId" required=""/>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Upload file1</h5>
+                <input type="file" (change)="onSelectFile($event)" class="form-control" id="pathDocumentImage"  name='pathDocumentImage' />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Upload file2</h5>
+                <input type="file" (change)="onSelectFile2($event)" class="form-control" id="pathDocumentImage"  name='pathDocumentImage' />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Upload file3</h5>
+                <input type="file" (change)="onSelectFile3($event)" class="form-control" id="pathDocumentImage"  name='pathDocumentImage' />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <div class="card" style="width: 18rem;">
+                
+                <div class="card-body">
+                  <button class="btn btn-success btn-sm" type="submit" (click)="saveForm(reactiveForm)">
+                    Upload
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div *ngIf="userFile" class="progress my-3">
+  <div
+    class="progress-bar progress-bar-info progress-bar-striped"
+    role="progressbar"
+    attr.aria-valuenow="{{ progress }}"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [ngStyle]="{ width: progress + '%' }"
+  >
+    {{ progress }}%
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- // -->
+
+<!-- <div class="body">
+    <form class="example-form" [formGroup]="reactiveForm"  enctype="multipart/form-data">
+
+        <div>
+            <label for="firstName">firstName</label>
+            <input type="text" formControlName="firstName" name="firstName">
+        </div>
+        <div>
+            <label for="lastName">lastName</label>
+            <input type="text" formControlName="lastName" name="lastName">
+        </div>
+        <div>
+            <label for="emailId">emailId</label>
+            <input type="text" formControlName="emailId" name="emailId">
+        </div>
+        <div>
+            <label for="emailId">file upload1</label>
+            <input type="file"  name="file" accept="image/*" (change)="onSelectFile($event)" style="height:100%" multiple>
+        </div>
+        <div>
+            <label for="emailId">file2 upload2</label>
+            <input type="file"  name="file" accept="image/*" (change)="onSelectFile2($event)" style="height:100%" multiple>
+        </div>
+        <div>
+          <label for="emailId">file3 upload3</label>
+          <input type="file"  name="file" accept="image/*" (change)="onSelectFile3($event)" style="height:100%" multiple>
+      </div>
+      <div>
+        <button type="submit" (click)="saveForm(reactiveForm)">Submit</button>
+      </div>
+    </form>
+</div>
+ -->

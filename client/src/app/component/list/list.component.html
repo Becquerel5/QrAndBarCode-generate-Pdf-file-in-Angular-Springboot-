@@ -1,0 +1,28 @@
+<!-- <button type="submit" class="btn btn-success" (click)="onPrint()">Print</button> -->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">QR</th>
+        <th scope="col">Bar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employee of employees; let count = index">
+        <th scope="row">{{count+1}}</th>
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.emailId}}</td>
+        <td>QR</td>
+        <td>BAR</td>
+      </tr>
+    
+    </tbody>
+  </table>
+  
+ 

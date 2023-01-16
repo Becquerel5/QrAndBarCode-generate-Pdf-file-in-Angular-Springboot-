@@ -1,0 +1,12 @@
+<div
+  [style.width.px]="data?.location?.topRightCorner?.['x']"
+  [style.width.px]="data?.location?.topLeftCorner?.['x']"
+  [style.height.px]="data?.location?.bottomRightCorner?.['y']"
+  [style.height.px]=" data?.location?.topRightCorner?.['y']"
+  [attr.tooltip]="data?.data"
+  [style.background]="'#e91e1e94'"
+  [style.border]="'3px dashed #ff0000'"
+  [style.left.px]="data?.location?.topLeftCorner?.['x']"
+  [style.top.px]="data?.location?.topLeftCorner?.['y']"
+  class="position-absolute"
+></div>
