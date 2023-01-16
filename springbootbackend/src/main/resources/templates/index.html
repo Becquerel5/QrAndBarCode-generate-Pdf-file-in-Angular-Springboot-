@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="" c:prefix="c">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="align-content: center">
+<h1>DTFB</h1>
+<table border="5%">
+    <thead>
+    <th>id</th>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>email</th>
+    <th>url1</th>
+    <th>url2</th>
+    <th>logo</th>
+    <th>qr</th>
+    <th>bar</th>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}">1</td>
+        <td><a href="#" th:text="${employee.firstName}">Title ...</a></td>
+        <td th:text="${employee.lastName}">Text ...</td>
+        <td th:text="${employee.emailId}">Text ...</td>
+        <td >
+
+            <!--img th:src="@{employee.url}"/-->
+
+            <img class="picture" th:src="@{'/index/'+${employee.url}}" />
+        </td>
+        <td >
+            <img th:src="@{employee.url2}"/>
+        </td>
+        <td >dsdsd</td>
+        <td >
+            <!--img src="${pageContext.request.contextPath}/qrcode/${employee.id}"  srcset="" width="200" height="200"
+            good  <img src="/qrcode/${employee.id}"  srcset="" width="200" height="200">
+            <img th:src="@{'/qrcode/'+${employee.id +employee.firstName +employee.lastName +employee.emailId  }}"  srcset="" width="200" height="200">
+            -->
+            <img th:src="@{'/qrcode/'+${employee.id +', ' +employee.firstName+', ' +employee.lastName+', ' +employee.emailId+', '  }}"  srcset="" width="200" height="200">
+        </td>
+        <td>
+            <!--img src="${pageContext.request.contextPath}/barcode/${employee.id}"  srcset="" width="200" height="100"
+            good  <img src="/barcode/${employee.id}"  srcset="" width="200" height="100">
+            -->
+            <img th:src="@{'/barcode/'+${employee.id +employee.firstName +employee.lastName +employee.emailId  }}"  srcset="" width="200" height="100">
+        </td>
+
+    </tr>
+    </tbody>
+    <tfoot>
+    <th>id</th>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>email</th>
+    <th>url1</th>
+    <th>url2</th>
+    <th>Logo</th>
+    <th>qr</th>
+    <th>bar</th>
+    </tfoot>
+</table>
+</body>
+</html>
